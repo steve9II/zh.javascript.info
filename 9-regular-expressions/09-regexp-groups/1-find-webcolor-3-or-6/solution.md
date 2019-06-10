@@ -15,7 +15,7 @@ let reg = /#([a-f0-9]{3}){1,2}/gi;
 
 let str = "color: #3f3; background-color: #AA00ef; and: #abcd";
 
-alert( str.match(reg) ); // #3f3 #AA0ef #abc
+alert( str.match(reg) ); // #3f3 #AA00ef #abc
 ```
 
 不过这里有个小问题：这个模式会在 `subject:#abcd` 中找到 `match:#abc`。为了避免这种情况，我们可以在最后加上 `pattern:\b`：
@@ -25,5 +25,5 @@ let reg = /#([a-f0-9]{3}){1,2}\b/gi;
 
 let str = "color: #3f3; background-color: #AA00ef; and: #abcd";
 
-alert( str.match(reg) ); // #3f3 #AA0ef
+alert( str.match(reg) ); // #3f3 #AA00ef
 ```
